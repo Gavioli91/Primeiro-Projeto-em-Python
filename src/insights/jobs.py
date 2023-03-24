@@ -28,7 +28,7 @@ with open(path, encoding="utf-8") as file:
         job_dict = {}
         for i, header in enumerate(headers):
             job_dict[header] = job[i]
-        jobs_list.append(job_dict)
+        jobs_list.append(job['job_type'])(job_dict)
 
     return jobs_list
 
@@ -48,7 +48,12 @@ def get_unique_job_types(path: str) -> List[str]:
     list
         List of unique job types
     """
-    raise NotImplementedError
+    jobs_list = read(path)
+    job_types = []
+    for job in jobs_list:
+        if not job['job_type'] in job_types:
+            job_types.append(job['job_type'])
+    return job_types
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
