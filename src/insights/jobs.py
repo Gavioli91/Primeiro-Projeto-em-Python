@@ -28,7 +28,7 @@ with open(path, encoding="utf-8") as file:
         job_dict = {}
         for i, header in enumerate(headers):
             job_dict[header] = job[i]
-        jobs_list.append(job['job_type'])(job_dict)
+        jobs_list.append(job_dict)
 
     return jobs_list
 
