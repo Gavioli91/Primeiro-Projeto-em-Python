@@ -41,6 +41,7 @@ def get_unique_job_types(path: str) -> List[str]:
     list
         List of unique job types
     """
+
     jobs_list = read(path)
     job_types = []
     for job in jobs_list:
