@@ -16,5 +16,5 @@ def get_unique_industries(path: str) -> List[str]:
 
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
 
-    job_industry = [job for job in jobs if job["industry"] == industry]
+    job_industry = [job for job in jobs if job['industry'] == industry]
     return job_industry
