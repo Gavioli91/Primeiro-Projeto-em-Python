@@ -4,28 +4,26 @@ from src.insights.jobs import read
 
 def get_max_salary(path: str) -> int:
 
-    jobs_list = read(path)
+    salary_reader = read(path)
+    job_list = []
 
-    return max(
-        [
-            int(job['max_salary'])
-            for job in jobs_list
-            if job['max_salary'].isdigit()
-        ]
-    )
+    for salary in salary_reader:
+        if salary['max_salary'] and salary['max_salary'] != 'invalid':
+            job_list.append(int(salary['max_salary']))
+
+    return max(job_list)
 
 
 def get_min_salary(path: str) -> int:
 
-    jobs_list = read(path)
+    salary_reader = read(path)
+    job_list = []
 
-    return min(
-        [
-            int(job['min_salary'])
-            for job in jobs_list
-            if job['min_salary'].isdigit()
-        ]
-    )
+    for salary in salary_reader:
+        if salary['min_salary'] and salary['min_salary'] != 'invalid':
+            job_list.append(int(salary['min_salary']))
+
+    return min(job_list)
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
