@@ -7,7 +7,7 @@ mock_translate = {
     'type': 'full time',
 }
 
-path = "tests/mocks/brazilians_jobs.csv"
+path = 'tests/mocks/brazilians_jobs.csv'
 
 
 def test_brazilian_jobs():

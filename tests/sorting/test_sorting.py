@@ -23,6 +23,8 @@ mock_order = [
     }
 ]
 
+path = 'tests/mocks/jobs.csv'
+
 
 def test_sort_by_criteria():
     sort_by(mock_order, 'title')
