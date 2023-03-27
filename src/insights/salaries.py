@@ -26,7 +26,7 @@ def get_min_salary(path: str) -> int:
     return min(job_list)
 
 
-def job_list_range(job: Dict, salary: Union[int, str]) -> bool:
+def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     try:
         min_salary = int(job['min_salary'])
         max_salary = int(job['max_salary'])
@@ -52,7 +52,7 @@ def filter_by_salary_range(
     for job in jobs:
 
         try:
-            if job_list_range(job, salary):
+            if matches_salary_range(job, salary):
                 salary_range.append(job)
         except ValueError:
             continue
