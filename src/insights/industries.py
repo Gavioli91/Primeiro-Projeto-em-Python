@@ -4,11 +4,13 @@ from src.insights.jobs import read
 
 def get_unique_industries(path: str) -> List[str]:
 
-    jobs_list = read(path)
-    job_industries = []
-    for job in jobs_list:
-        if not job['industry'] in job_industries and job['industry']:
-            job_industries.append(job['industry'])
+    industries_reader = read(path)
+    job_industries = set()
+
+    for industry in industries_reader:
+        if len(industry['industry']) > 0:
+            job_industries.add(industry['industry'])
+
     return job_industries
 
 
